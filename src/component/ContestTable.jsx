@@ -151,15 +151,16 @@ export default function ContestTable({ title, filteredData }) {
               return (
                 <tr key={index}>
                   <td>
-                    <a
-                      href={contest.url}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="contest-link"
-                    >
-                      {contest.name}
-                    </a>
-                  </td>
+  <a
+    href={contest.url}
+    target="_blank"
+    rel="noopener noreferrer"
+    className="contest-link font-semibold text-blue-500"
+  >
+    {contest.name}
+  </a>
+</td>
+
                   <td>{contest.startDate}</td>
                   <td>{contest.startTime}</td>
                   <td>{contest.duration}</td>
