@@ -1,11 +1,13 @@
 /* Table Container */
 .table-container {
-  margin: 20px 0;
+  margin: 20px auto;
   padding: 16px;
-  background-color: var(--table-bg, #fff);
+  background-color: var(--table-bg);
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   font-family: "Tektur", sans-serif;
+  width: 95%;
+  overflow-x: auto;
 }
 
 .dark .table-container {
@@ -13,6 +15,23 @@
   color: #f7fafc;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
 }
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .table-container {
+    padding: 12px;
+    width: 98%;
+  }
+}
+
+@media (max-width: 480px) {
+  .table-container {
+    padding: 10px;
+    width: 100%;
+    border-radius: 5px;
+  }
+}
+
 
 /* Title Styling */
 .table-container h2 {
@@ -118,8 +137,6 @@
   fill: #ff6b00 !important; /* Fully filled with dark orange */
 }
 
-
-
 /* Overlay for Modal */
 /* Modal Overlay */
 .overlay {
@@ -150,31 +167,47 @@
 
 /* Modal Title */
 .modal h2 {
-  margin-top: 0;
-  font-size: 1.8rem;
   text-align: center;
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 12px;
 }
 
-/* Reminder Options */
-.reminder-options button,
-.confirm-btn,
-.sure-btn,
-.close-btn {
-  border: "1px solid rgba(0, 0, 0, 0.2)";
-  padding: 10px 18px;
-  margin: 5px;
-  border: none;
+.modal p {
+  text-align: center;
+  font-size: 1.1rem;
+  font-weight: 500;
+}
+
+/* Stylish border for time selection buttons */
+.reminder-options {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-top: 15px;
+}
+
+.reminder-options button {
+  padding: 12px 18px;
   border-radius: 8px;
+  font-size: 1rem;
   cursor: pointer;
-  transition: background-color 0.3s;
+  font-weight: bold;
+  color: white;
+  background: linear-gradient(135deg, #1296ad, #feb47b);
+  border: 2px solid #e0c517;
+  transition: all 0.3s ease-in-out, transform 0.2s ease-in-out;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
 }
 
 .reminder-options button:hover {
-  background-color: #dd6b20;
-  transform: scale(1.05);
+  background: linear-gradient(135deg, #790895, #0f90a1);
+  border-color: #ff2200;
+  transform: scale(1.08);
+  box-shadow: 0px 6px 12px rgba(255, 69, 0, 0.5);
 }
 
-/* Confirmation Section */
 .confirmation,
 .final-confirmation {
   margin-top: 16px;
@@ -203,41 +236,82 @@
   transform: scale(1.05);
 }
 
-/* Close Button */
+/* Center the Close button */
 .close-btn {
-  padding: 8px 16px;
-  border: none;
-  border-radius: 4px;
-  margin-top: 16px;
+  display: block;
+  margin: 20px auto;
+  padding: 12px 20px;
   background-color: #e53e3e;
   color: white;
+  font-size: 1.1rem;
+  font-weight: bold;
+  border-radius: 8px;
   cursor: pointer;
   transition: background-color 0.3s, transform 0.2s;
 }
 
 .close-btn:hover {
   background-color: #c53030;
-  transform: scale(1.05);
+  transform: scale(1.1);
 }
 
-/* Fade-in Animation */
-@keyframes fadeIn {
+/* Email Input Field with 3D Hover Effect */
+.email-input-container {
+  margin-top: 20px;
+  padding: 10px;
+  text-align: center;
+  opacity: 0;
+  transform: translateY(-10px);
+  transition: opacity 0.4s ease-in-out, transform 0.4s ease-in-out;
+}
+
+.email-input-container label {
+  display: block;
+  font-size: 1rem;
+  font-weight: bold;
+  color: #fff;
+  margin-bottom: 8px;
+}
+
+.email-input-container input {
+  width: 90%;
+  max-width: 300px;
+  padding: 10px;
+  border: 2px solid #ccc;
+  border-radius: 8px;
+  font-size: 1rem;
+  text-align: center;
+  outline: none;
+  transition: all 0.3s ease-in-out;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+  background-color: #fff;
+  color: #333;
+}
+
+.email-input-container input:focus {
+  border-color: #ff4500;
+  transform: scale(1.05);
+  box-shadow: 0px 6px 10px rgba(255, 69, 0, 0.5);
+}
+
+/* Add fade-in animation for email input */
+.fade-in {
+  opacity: 1 !important;
+  transform: translateY(0) !important;
+}
+
+/* Slightly glow effect for the active reminder bell icon */
+.reminder-active {
+  color: #ff6b00 !important;
+  fill: #ff6b00 !important;
+  animation: bellGlow 1.5s infinite alternate;
+}
+
+@keyframes bellGlow {
   from {
-    opacity: 0;
-    transform: scale(0.9);
+    text-shadow: 0px 0px 6px rgba(255, 165, 0, 0.6);
   }
   to {
-    opacity: 1;
-    transform: scale(1);
+    text-shadow: 0px 0px 12px rgba(255, 140, 0, 0.9);
   }
-}
-
-.contest-link {
-  font-weight: bold; /* Makes the text bold */
-  color: rgb(19, 19, 220); /* Sets the text color to dark blue */
-  text-decoration: none; /* Removes underline */
-}
-
-.contest-link:hover {
-  text-decoration: underline; /* Adds underline on hover */
 }
