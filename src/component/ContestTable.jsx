@@ -135,7 +135,7 @@ export default function ContestTable({ title, filteredData }) {
       <table className="contest-table">
         <thead>
           <tr>
-            <th>Contest Name</th>
+            <th className="text-blue-400">Contest Name</th>
             <th>Start Date</th>
             <th>Start Time</th>
             <th>Duration</th>
