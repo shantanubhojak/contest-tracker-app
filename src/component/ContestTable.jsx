@@ -100,7 +100,7 @@ export default function ContestTable({ title, filteredData }) {
 
     try {
       const response = await fetch(
-        "http://localhost:5000/api/reminders/schedule",
+        "https://contest-tracker-backend-ll7g.onrender.com/api/reminders/schedule",
         {
           method: "POST",
           headers: { "Content-Type": "application/json" },
