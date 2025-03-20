@@ -132,20 +132,20 @@ export default function Dashboard() {
     fetchContests();
   }, []);
 
+  
   useEffect(() => {
     const savedTheme = localStorage.getItem("theme");
-    if (
-      savedTheme === "dark" ||
-      (!savedTheme && window.matchMedia("(prefers-color-scheme: dark)").matches)
-    ) {
-      document.documentElement.classList.add("dark");
-      setDarkMode(true);
-    } else {
+  
+    if (savedTheme === "light") {
       document.documentElement.classList.remove("dark");
       setDarkMode(false);
+    } else {
+      // Default to dark mode
+      document.documentElement.classList.add("dark");
+      setDarkMode(true);
     }
   }, []);
-
+  
   const toggleTheme = () => {
     setDarkMode((prev) => {
       const newTheme = !prev;
@@ -154,6 +154,7 @@ export default function Dashboard() {
       return newTheme;
     });
   };
+  
 
   const platforms = ["All Platforms", "LeetCode", "CodeChef", "CodeForces"];
 

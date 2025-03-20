@@ -64,11 +64,10 @@ body {
   border-radius: 12px;
   padding: 5px;
   color: white;
-  font-size:xxx-large;
+  font-size: xxx-large;
   cursor: pointer;
   font-weight: bold;
   font-family: "Tektur", sans-serif;
-  
 }
 
 .contest-button:hover {
@@ -117,15 +116,15 @@ body {
   color: #90caf9;
 }
 
-
 /* Platforms Section */
-/* Platform Buttons */
 .platform-buttons {
   display: flex;
-  justify-content:space-evenly;
+  flex-wrap: wrap;
+  justify-content: center;
   gap: 12px;
   padding: 16px;
   background-color: #628eba;
+  border-radius: 8px;
 }
 
 .dark .platform-buttons {
@@ -134,59 +133,77 @@ body {
 
 /* Default Button Styling */
 .platform-button {
-  padding: 10px 20px;
-  margin: 5px;
+  padding: 12px 24px;
   border: none;
-  border-radius: 5px;
+  border-radius: 8px;
   color: white;
+  font-size: 1rem;
+  font-family: "Tektur", sans-serif;
+  text-align: center;
   cursor: pointer;
-  transition: background-color 0.3s ease;
+  transition: all 0.3s ease;
+  min-width: 120px;
+  max-width: 200px;
+  flex: 1;
 }
 
 /* Specific Platform Colors */
 .platform-button.leetcode {
-  font-size: larger;
-  font-family: "Tektur", sans-serif;
-  width: fit-content;
-  background-color: #FFA116; /* LeetCode Orange */
+  background-color: #ff9800; /* More professional orange */
 }
 
 .platform-button.codechef {
-  font-size: larger;
-  font-family: "Tektur", sans-serif;
-  width: fit-content;
-  background-color: #5B4638; /* CodeChef Brown */
+  background-color: #795548; /* More elegant brown */
 }
 
 .platform-button.codeforces {
-  font-size: larger;
-  font-family: "Tektur", sans-serif;
-  width: fit-content;
-  background-color: #1F8ACB; /* CodeForces Blue */
+  background-color: #2196f3; /* More refined blue */
 }
 
 .platform-button.all {
-  font-size: larger;
-  font-family: "Tektur", sans-serif;
-  width: fit-content;
-  background-color: #4bb04e; /* Green for All Platforms */
+  background-color: #4caf50; /* More professional green */
 }
 
 /* Hover Effect */
 .platform-button:hover {
-  opacity: 0.8;
+  filter: brightness(1.1);
+  transform: translateY(-2px);
 }
 
 /* Active Button Styling */
 .platform-button.active {
-  border: 2px solid #000;
+  border: 2px solid rgba(255, 255, 255, 0.8);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
 
 /* Dark Mode */
 .dark .platform-button {
-  filter: brightness(0.9);
+  filter: brightness(0.85);
 }
 
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .platform-buttons {
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .platform-button {
+    width: 80%;
+    max-width: 250px;
+    padding: 14px;
+    font-size: 1.1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .platform-button {
+    width: 90%;
+    font-size: 1rem;
+    padding: 12px;
+  }
+}
 
 /* Theme Toggle */
 .theme-toggle {
@@ -199,5 +216,3 @@ body {
   width: 24px;
   height: 24px;
 }
-
-
